@@ -15,6 +15,7 @@ import {
 const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();
+
   const amount = useSelector(selectCartTotal);
   const currentUser = useSelector(selectCurrentUser);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
@@ -23,6 +24,8 @@ const PaymentForm = () => {
     e.preventDefault();
 
     if (!stripe || !elements) {
+      // Stripe.js has not yet loaded.
+      // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
 

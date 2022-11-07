@@ -5,10 +5,15 @@
 import "./checkout.styles.scss";
 import CheckoutItem from "../../component/checkout-item/checkout-item.component";
 import { useSelector } from "react-redux";
+// import {
+//   selectCartItems,
+//   selectCartTotal,
+// } from "../../store/cart/cart.selector";
+
 import {
   selectCartItems,
   selectCartTotal,
-} from "../../store/cart/cart.selector";
+} from "../../tookit/cart/cart.selector";
 
 import PaymentForm from "../../component/payment-form/paymenet-form.component";
 

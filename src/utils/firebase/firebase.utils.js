@@ -71,6 +71,8 @@ export const getCategoriesAndDocuments = async () => {
   // }, {});
 
   // return categoryMap;
+  // 위 categoryMap 을 그냥 array로 받아오지 않고 reduce를 이용해서 object로 바꿔서 가져온 이유는
+  // array 배열보다 hash table형식이 데이터를 search 하는데 훨씬 빠르기 때문이다.
 };
 
 export const createUserDocumentFromAuth = async (
@@ -123,12 +125,18 @@ export const signOutUser = async () => await signOut(auth);
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
 
+// auth state 상태관리 func
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
+    // unsubscribe함수로 onAuthStateChanged 함수 선언
     const unsubscribe = onAuthStateChanged(
       auth,
       (userAuth) => {
+        //콜백함수로 auth를 받아오면 바로 함수 종료
+        // 안그럼 메모리 유출이 있을 수 있음 -- 종료하지 않으면 상태관리가 계속 돌아가고 있기때문에
+        console.log("user is Changed");
         unsubscribe();
+
         resolve(userAuth);
       },
       reject

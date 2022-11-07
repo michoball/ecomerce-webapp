@@ -5,10 +5,15 @@ import { useParams } from "react-router-dom";
 // import { CategoriesContext } from "../../contexts/categories.context";
 import ProductCard from "../../component/product-card/product-card-component";
 import { useSelector } from "react-redux";
+// import {
+//   selectCategoriesMap,
+//   selectCategoriesIsLoading,
+// } from "../../store/categories/category.selector";
+
 import {
   selectCategoriesMap,
   selectCategoriesIsLoading,
-} from "../../store/categories/category.selector";
+} from "../../tookit/category/category.selector";
 
 import Spinner from "../../component/spinner/spinner.component";
 const Category = () => {

@@ -8,7 +8,9 @@ import Button from "../button/button.component";
 
 import "./sign-up-form.styles.scss";
 import { useDispatch } from "react-redux";
-import { signUpStart } from "../../store/user/user.action";
+// import { signUpStart } from "../../store/user/user.action";
+
+import { userSignUp } from "../../tookit/user/user.reducer";
 
 const defaultFormFields = {
   displayName: "",
@@ -47,7 +49,7 @@ const SignUpForm = () => {
     }
 
     try {
-      dispatch(signUpStart(email, password, displayName));
+      dispatch(userSignUp({ email, password, displayName }));
       // const userCredential = await createAuthUserWithEmailAndPassword(
       //   email,
       //   password

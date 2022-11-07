@@ -105,9 +105,9 @@ export function* onEmailSignInStart() {
   yield takeLatest(USER_ACTION_TYPES.EMAIL_SIGN_IN_START, signInWithEmail);
 }
 
-export function* onEmailSignUpStart() {
-  yield takeLatest(USER_ACTION_TYPES.EMAIL_SIGN_IN_START, signInWithEmail);
-}
+// export function* onEmailSignUpStart() {
+//   yield takeLatest(USER_ACTION_TYPES.EMAIL_SIGN_IN_START, signInWithEmail);
+// }
 
 export function* onSignUpStart() {
   yield takeLatest(USER_ACTION_TYPES.SIGN_UP_START, signUp);

@@ -12,10 +12,16 @@ import "./sign-in-form.styles.scss";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
+// import {
+//   emailSignInStart,
+//   googleSignInStart,
+// } from "../../store/user/user.action";
+
 import {
-  emailSignInStart,
-  googleSignInStart,
-} from "../../store/user/user.action";
+  userSignInEmail,
+  userSignInGoogle,
+} from "../../tookit/user/user.reducer";
+
 const defaultFormFields = {
   email: "",
   password: "",
@@ -48,7 +54,7 @@ const SignInForm = () => {
     }
 
     try {
-      dispatch(emailSignInStart(email, password));
+      dispatch(userSignInEmail({ email, password }));
       // await signInAuthUserWithEmailAndPassword(email, password);
       alert("Welcome Back!!");
       resetFormField();
@@ -67,7 +73,7 @@ const SignInForm = () => {
     }
   };
   const logGoogleUser = async () => {
-    dispatch(googleSignInStart());
+    dispatch(userSignInGoogle());
     // await signInWithGooglePopup();
     // await createUserDocumentFromAuth();
 

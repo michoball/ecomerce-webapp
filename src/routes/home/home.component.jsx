@@ -5,7 +5,6 @@ function Home() {
   return (
     <div>
       <Directory />
-      <Outlet />
     </div>
   );
 }

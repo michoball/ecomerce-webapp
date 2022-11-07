@@ -5,13 +5,14 @@ import Category from "../category/category.component";
 import { useEffect } from "react";
 // import { setCategories } from "../../store/categories/category.action";
 import "./shop.styles.scss";
-import { fetchCategoriesStart } from "../../store/categories/category.action";
+// import { fetchCategoriesStart } from "../../store/categories/category.action";
+import { fetchCategoriseMap } from "../../tookit/category/category.reducer"; // toolkit
 import { useDispatch } from "react-redux";
 
 const Shop = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchCategoriesStart());
+    dispatch(fetchCategoriseMap());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

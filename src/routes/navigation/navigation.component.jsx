@@ -6,11 +6,17 @@ import { useDispatch, useSelector } from "react-redux";
 import CartIcon from "../../component/cart-icon/cart-icon.component";
 import CartDropdown from "../../component/cart-dropdown/cart-dropdown.component";
 
-import { selectCurrentUser } from "../../store/user/user.selector";
-import { selectIsCartOpen } from "../../store/cart/cart.selector";
+// import { selectCurrentUser } from "../../store/user/user.selector";
+// import { selectIsCartOpen } from "../../store/cart/cart.selector";
+
+//toolkit
+import { selectCurrentUser } from "../../tookit/user/user.selector";
+import { selectIsCartOpen } from "../../tookit/cart/cart.selector";
 
 // import { signOutUser } from "../../utils/firebase/firebase.utils";
-import { signOutStart } from "../../store/user/user.action";
+// import { signOutStart } from "../../store/user/user.action";
+import { userSignOut } from "../../tookit/user/user.reducer";
+
 import {
   NavigationContainer,
   LogoContainer,
@@ -24,7 +30,7 @@ const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
 
-  const signOutUser = () => dispatch(signOutStart());
+  const signOutUser = () => dispatch(userSignOut());
 
   return (
     <Fragment>

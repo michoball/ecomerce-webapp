@@ -3,11 +3,18 @@ import "./checkout-item.styles.scss";
 
 // import { CartContext } from "../../contexts/cart.context";
 import { useDispatch, useSelector } from "react-redux";
+// import {
+//   addItemToCart,
+//   removeItemFromCart,
+//   clearItemFromCart,
+// } from "../../store/cart/cart.action";
+
 import {
   addItemToCart,
   removeItemFromCart,
   clearItemFromCart,
-} from "../../store/cart/cart.action";
+} from "../../tookit/cart/cart.action";
+
 import { selectCartItems } from "../../store/cart/cart.selector";
 const CheckoutItem = ({ cartItem }) => {
   const dispatch = useDispatch();

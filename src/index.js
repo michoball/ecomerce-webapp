@@ -11,6 +11,11 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./store/store";
 
+//toolkit
+// toolkt 관련 코드는 ./tookit 여기에
+// toolkit 코드는 내가 redux-saga 쓴거 보고 짠거
+import { toolkitstore, toolkitPersistor } from "./tookit/tookitStore";
+
 // stripe payment 를 사용하기 위해서 Elemnets로 app을 감싼다.
 // Elements 로 감싸진 부분만 stripe element에 접근할 수 있다.
 // Elements 에 stripe 값에 내 계정의 public key를 등록해서 사용
@@ -19,8 +24,8 @@ import { stripePromise } from "./utils/stripe/stripe.utils";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+    <Provider store={toolkitstore}>
+      <PersistGate loading={null} persistor={toolkitPersistor}>
         <BrowserRouter>
           <Elements stripe={stripePromise}>
             <App />
